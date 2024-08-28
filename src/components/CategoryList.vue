@@ -1,6 +1,6 @@
 <script setup>
 import { reactive, onMounted } from 'vue'
-import { useCategoryStore } from '@/stores/category'
+import { useCategoryStore,deleteCategory } from '@/stores/category'
 
 const categoryStore = useCategoryStore()
 const newCategory = reactive(
@@ -45,7 +45,7 @@ onMounted(async () => {
           <tr v-for="category in categoryStore.categories" :key="category.id">
             <td>{{ category.id }}</td>
             <td>{{ category.name }}</td>
-            <td> <span class="mdi mdi-delete" /></td>
+            <button @click="deleteCategory" class="mdi mdi-delete"></button>
           </tr>
         </tbody>
 
